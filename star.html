@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .star-container {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        cursor: pointer;
+        width: fit-content;
+        margin: auto;
+      }
+      .active {
+        color: darkgoldenrod;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="star-container">
+      <h1>✯</h1>
+      <h1>✯</h1>
+      <h1>✯</h1>
+      <h1>✯</h1>
+      <h1>✯</h1>
+    </div>
+
+    <script>
+      const stars = document.querySelector(".star-container");
+      const starsArr = Array.from(stars.children);
+      starsArr.map((star, index) => {
+        star.addEventListener("click", function () {
+          if (star.classList == "active") {
+            starsArr.map((star) => {
+              star.classList.remove("active");
+            });
+          }
+          for (i = 0; i < index + 1; i++) {
+            starsArr[i].classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
